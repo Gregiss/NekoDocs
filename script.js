@@ -128,7 +128,7 @@ var app = new Vue({
         }
         },
         onde(letter){
-            var index = thiws.document.text.indexOf(letter)
+            var index = this.document.text.indexOf(letter)
             this.lastKey = this.document.text[index]
             this.digitando = index
         }

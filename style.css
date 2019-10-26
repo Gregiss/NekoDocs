@@ -17,7 +17,7 @@
     position: fixed;
     background: #f8f9fa;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 header h1{
@@ -37,7 +37,8 @@ header span{
 .code{
     background-color: rgb(255, 255, 255);
     max-width: 794px;
-    height: 1200px;
+    max-height: 800px;
+    height: 500px;
     box-shadow: rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     margin: 0px auto;
     padding: 20px;
