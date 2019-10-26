@@ -134,6 +134,9 @@ var app = new Vue({
           this.editando = true
         },
         editFalse(){
+          if(this.document.name == ''){
+            this.document.name = 'Documento sem título'
+          }
           this.editando = false
         }
     }

@@ -156,9 +156,12 @@ header input{
   left: 110px;
   padding: 10px;
   outline: none;
-  color: #000;
+  color: #151515;
   z-index: 100;
   font-size: 1.1em;
+  background: #f1f1f1;
+  border-radius: 40px;
+  box-shadow: rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 header input::placeholder{
