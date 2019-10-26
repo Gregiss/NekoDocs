@@ -129,15 +129,6 @@ var app = new Vue({
             var index = this.document.text.indexOf(letter)
             this.lastKey = this.document.text[index]
             this.digitando = index
-        },
-        editar(){
-          this.editando = true
-        },
-        editFalse(){
-          if(this.document.name == ''){
-            this.document.name = 'Documento sem título'
-          }
-          this.editando = false
         }
     }
 });
