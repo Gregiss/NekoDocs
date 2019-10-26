@@ -18,12 +18,14 @@ var app = new Vue({
         ],
         documentOptions: {"fontSize": 16, 'color': 'black', 'style': 'normal'},
         lastKey: null,
-        digitando: -1
+        digitando: -1,
+        theme: 'light'
     },
     created() {
         window.addEventListener('keydown', (e) => {
+            console.log(e.key)
             if(e.key == 'ArrowLeft'){
-                if(this.digitando > 0 ){
+                if(this.digitando >= 0 ){
                     this.digitando--
                     this.lastKey = this.document.text[this.digitando]
                 }
@@ -33,6 +35,17 @@ var app = new Vue({
                     this.digitando++
                     this.lastKey = this.document.text[this.digitando]
                 }
+            }
+            if(e.key == 'Dead'){
+                this.darkMode()
+            }
+            if(e.key == 'End'){
+                this.digitando = this.document.text.length - 1
+                this.lastKey = this.document.text[this.document.text.length - 1]
+            }
+            if(e.key == 'Home'){
+                this.digitando = 0
+                this.lastKey = this.document.text[0]
             }
             if (e.key.isABC()) {
                 this.editar(e.key)
@@ -61,6 +74,21 @@ var app = new Vue({
     },
     
     methods: {
+        darkMode(){
+            if(this.theme === 'light'){
+                this.document.color = 'white'
+                this.theme = 'dark'
+                for(var i = 0; i < this.document.text.length; i++){
+                    this.document.text[i].color = 'white'
+                }
+            } else{
+                this.theme = 'light'
+                for(var i = 0; i < this.document.text.length; i++){
+                    this.document.text[i].color = 'black'
+                }
+                this.document.color = 'black'
+            }
+        },
         insertAt(array, index) {
             var arrayToInsert = Array.prototype.splice.apply(arguments, [2]);
             return this.insertArrayAt(array, index, arrayToInsert);
@@ -87,8 +115,9 @@ var app = new Vue({
                 'size': this.documentOptions.fontSize,
                 'color': this.documentOptions.color
             }
-            this.insertArrayAt(this.document.text, this.digitando, arr);
-            this.lastKey = this.document.text[this.digitando]
+            this.digitando++
+            this.insertArrayAt(this.document.text, this.digitando + 1, arr);
+            this.lastKey = this.document.text[this.digitando + 1]
         }
         },
         onde(letter){

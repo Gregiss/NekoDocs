@@ -96,3 +96,45 @@ header span{
     50% { opacity: 1; }
     100% { opacity: 0; }
 }
+
+.dark{
+    background: #151515 !important;
+}
+
+.dark{
+    color: #fff;
+}
+
+.dark header{
+    background: rgba(0,0,0,.40);
+    color: #fff;
+}
+
+.dark .tools{
+    background: rgba(0,0,0,.40);
+}
+
+.dark h1{
+    color: #fff;
+}
+
+.dark header h1{
+    background: rgba(0,0,0,.40);
+    color: #fff;
+}
+
+.dark #papel{
+    background: rgba(0,0,0,.40);
+}
+
+.dark .where{
+    background: #fff;
+}
+
+.light .tools i{
+    color: #151515 !important;
+}
+
+.dark header span{
+    color: #fff;
+}
