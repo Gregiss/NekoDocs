@@ -39,6 +39,7 @@ header span{
     box-shadow: rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     margin: 0px auto;
     padding: 20px;
+    top: 20px;
 }
 
 .final{
