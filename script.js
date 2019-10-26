@@ -53,17 +53,22 @@ var app = new Vue({
                 this.editar(e.key)
             }
             if (e.key == 'Backspace') {
-                this.document.text.splice(-1, 1)
                 if(this.digitando === this.document.text.length - 1 || this.digitando === -1){
                 if(this.document.text.length > 0){
+                this.document.text.splice(-1, 1)
                 this.lastKey = this.document.text[this.document.text.length - 1]
                 } else{
                     this.lastKey = 'blank'
                 }
             } else{
-                this.digitando--
-                this.lastKey = this.document.text[this.digitando]
-                this.document.text.splice(this.digitando + 1, 1)
+                this.document.text.splice(this.digitando, 1)
+                if(this.document.text.length == 1){
+                    this.digitando = -1
+                    this.lastKey = this.document.text[this.document.text.length - 1]
+                } else{
+                    this.digitando--
+                    this.lastKey = this.document.text[this.digitando]
+                }
             }
             }
         });
@@ -115,8 +120,8 @@ var app = new Vue({
                 'color': this.documentOptions.color
             }
             this.digitando++
-            this.insertArrayAt(this.document.text, this.digitando + 1, arr);
-            this.lastKey = this.document.text[this.digitando + 1]
+            this.insertArrayAt(this.document.text, this.digitando, arr);
+            this.lastKey = this.document.text[this.digitando]
         }
         },
         onde(letter){
