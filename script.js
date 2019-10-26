@@ -6,7 +6,7 @@ String.prototype.isABC = function() {
     for (i = 0; i < ab.length; i++) { if (ab.charAt(i) == a || ab2.charAt(i) == a || ab3.charAt(i) == a) { return true; } }
     return false;
 }
-
+  
 var app = new Vue({
     el: "#app",
     data: {
@@ -18,10 +18,22 @@ var app = new Vue({
         ],
         documentOptions: {"fontSize": 16, 'color': 'black', 'style': 'normal'},
         lastKey: null,
-        digitando: 0
+        digitando: -1
     },
     created() {
         window.addEventListener('keydown', (e) => {
+            if(e.key == 'ArrowLeft'){
+                if(this.digitando > 0 ){
+                    this.digitando--
+                    this.lastKey = this.document.text[this.digitando]
+                }
+            }
+            if(e.key == 'ArrowRight'){
+                if(this.digitando < this.document.text.length - 1){
+                    this.digitando++
+                    this.lastKey = this.document.text[this.digitando]
+                }
+            }
             if (e.key.isABC()) {
                 this.editar(e.key)
             }
@@ -30,28 +42,54 @@ var app = new Vue({
             }
             if (e.key == 'Backspace') {
                 this.document.text.splice(-1, 1)
+                if(this.digitando === this.document.text.length - 1 || this.digitando === -1){
                 if(this.document.text.length > 0){
                 this.lastKey = this.document.text[this.document.text.length - 1]
                 } else{
                     this.lastKey = 'blank'
                 }
-                console.log(this.lastKey)
+            } else{
+                this.digitando--
+                this.lastKey = this.document.text[this.digitando]
+                this.document.text.splice(this.digitando + 1, 1)
+            }
             }
         });
     },
     mounted() {
         
     },
+    
     methods: {
+        insertAt(array, index) {
+            var arrayToInsert = Array.prototype.splice.apply(arguments, [2]);
+            return this.insertArrayAt(array, index, arrayToInsert);
+        },
+        insertArrayAt(array, index, arrayToInsert) {
+            Array.prototype.splice.apply(array, [index, 0].concat(arrayToInsert));
+            return array;
+        },
         editar(letter) {
+        if(this.digitando === this.document.text.length - 1 || this.digitando == -1){
         this.document.text.push({
                 'letter': letter,
                 'style': this.documentOptions.style,
                 'size': this.documentOptions.fontSize,
                 'color': this.documentOptions.color
         })
-        this.digitando = this.document.text.length - 1
         this.lastKey = this.document.text[this.document.text.length - 1]
+        this.digitando = this.document.text.length - 1
+        } else{
+            console.log(letter)
+            var arr = {
+                'letter': letter,
+                'style': this.documentOptions.style,
+                'size': this.documentOptions.fontSize,
+                'color': this.documentOptions.color
+            }
+            this.insertArrayAt(this.document.text, this.digitando, arr);
+            this.lastKey = this.document.text[this.digitando]
+        }
         },
         onde(letter){
             var index = this.document.text.indexOf(letter)
