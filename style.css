@@ -66,6 +66,7 @@ header span{
     left: 4px;
     top: 40px;
     margin-top: 0px;
+    cursor: text;
 }
 
 .tools{
