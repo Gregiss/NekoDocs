@@ -24,7 +24,7 @@ var app = new Vue({
     created() {
         window.addEventListener('keydown', (e) => {
             if(e.key == 'ArrowLeft'){
-                if(this.digitando >= 0 ){
+                if(this.digitando > 0 ){
                     this.digitando--
                     this.lastKey = this.document.text[this.digitando]
                 }
