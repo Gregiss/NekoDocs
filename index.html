@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>NekoDocs</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app"> 
+  <header>
+    <h1>LOGO</h1>
+    <span>{{ document.name }}</span>
+    <div class="tools">
+      <i v-for="option in options" :class="option.icon"></i>
+      
+    </div>
+  </header>
+    <div class="code" id="papel" v-on:keyup="keyHandler($event)" >
+        <div class="where" style="top: 65px; left: 25px" v-if="document.text.length == 0"></div>
+      <span v-for="letter in document.text" v-bind:style="{ color: letter.color, fontSize: letter.size + 'px' }" @click="onde(letter)">{{ letter.letter }}
+        <div class="where" v-if="lastKey == letter && letter.letter !== ' '"></div> <div class="where" style="top: -12px; left: -2px" v-if="lastKey == letter && letter.letter === ' '"></div></span>
+    </div>
+  </div>
+
+
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

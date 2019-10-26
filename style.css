@@ -1,0 +1,98 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    -webkit-user-select: none;
+    /* Chrome Todos / Safari Todos */
+    -moz-user-select: none;
+    /* Firefox Todos */
+    -ms-user-select: none;
+    /* IE 10+ */
+    -o-user-select: none;
+    user-select: none;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #f8f9fa;
+}
+
+header h1{
+    font-size: 1.5em;
+    padding: 20px;
+    background: #fff;
+    border-bottom: 1px solid #dadce0;
+}
+
+header span{
+    position: absolute;
+    top: 20px;
+    left: 120px;
+    font-size: 1.1em;
+}
+
+.code{
+    background-color: rgb(255, 255, 255);
+    max-width: 794px;
+    height: 1123px;
+    box-shadow: rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    margin: 0px auto;
+    padding: 20px;
+}
+
+.final{
+    position: absolute;
+    right: 0px;
+    width: 12px;
+    height: 12px;
+    background: rgba(60, 64, 67, 0.15);
+    border-radius: 1px 2px 20px 20px 2px;
+    box-shadow: rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.code span{
+    display: inline-block;
+    padding: 0px;
+    margin-left: 1.5px;
+    position: relative;
+    left: 4px;
+    top: 40px;
+    margin-top: 0px;
+}
+
+.tools{
+    position: relative;
+    background: #fff;
+    width: 100%;
+    height: 40px;
+    top: -12px;
+    border-bottom: 1px solid #dadce0;
+    padding: 10px;
+}
+
+.tools i{
+    margin-left: 10px;
+    cursor: pointer;
+    top: -17px;
+    left: -20px;
+}
+
+.where{
+    position: absolute;
+    width: 2px;
+    height: 14px;
+    background: #000000f5;
+    top: 7px;
+    left: 10px;
+    -moz-animation: fadeinphoto 0.5s 0.5s infinite;
+    -webkit-animation: fadeinphoto 0.5s 0.5s infinite;
+         -o-animation: fadeinphoto 0.5s 0.5s infinite;
+            animation: fadeinphoto 0.5s 0.5s infinite;
+}
+
+@keyframes fadeinphoto {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
