@@ -16,13 +16,21 @@
       <span>{{ document.name }}</span>
       <div class="tools">
         <i v-for="option in options" :class="option.icon"></i>
+        <select name="select" v-model="documentOptions.fontFamiliy">
+            <option value="Arial, Helvetica, sans-serif" selected>Arial</option> 
+            <option value="Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Cambria</option>
+            <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Impact</option>
+            <option value="cursive">Cursive</option>
+            <option value="monospace">Monospace</option>
+            <option value="serif">Serif</option>
+        </select>
       </div>
     </header>
       <div class="code" id="papel">
           <div class="where" style="top: 65px; left: 25px" v-if="document.text.length == 0"></div>
-        <span v-for="letter in document.text" v-bind:style="{ color: letter.color, fontSize: letter.size + 'px' }" @click="onde(letter)">{{ letter.letter }}
+        <span v-for="letter in document.text" v-bind:style="{ color: letter.color, fontSize: letter.size + 'px', fontFamily: letter.font }" @click="onde(letter)">{{ letter.letter }}
           <div class="where" v-if="lastKey == letter && letter.letter !== ' '"></div> <div class="where" style="top: -12px; left: -2px" v-if="lastKey == letter && letter.letter === ' '"></div></span>
-      </div>
+        </div>
     </div>
   </div>
   </div>

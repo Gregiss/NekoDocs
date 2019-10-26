@@ -16,7 +16,7 @@ var app = new Vue({
             {'name' :'Desfazer', 'icon': 'fas fa-undo'},
             {'name' :'Refazer', 'icon': 'fas fa-redo'}
         ],
-        documentOptions: {"fontSize": 16, 'color': 'black', 'style': 'normal'},
+        documentOptions: {"fontSize": 16, 'color': 'black', 'style': 'normal', 'zoom': '1', 'fontFamiliy': 'Arial, Helvetica, sans-serif'},
         lastKey: null,
         digitando: -1,
         theme: 'light',
@@ -77,7 +77,6 @@ var app = new Vue({
     mounted() {
         
     },
-    
     methods: {
         darkMode(){
             if(this.theme === 'light'){
@@ -110,7 +109,8 @@ var app = new Vue({
                 'letter': letter,
                 'style': this.documentOptions.style,
                 'size': this.documentOptions.fontSize,
-                'color': this.documentOptions.color
+                'color': this.documentOptions.color,
+                'font': this.documentOptions.fontFamiliy
         })
         this.lastKey = this.document.text[this.document.text.length - 1]
         this.digitando = this.document.text.length - 1
@@ -120,7 +120,8 @@ var app = new Vue({
                 'letter': letter,
                 'style': this.documentOptions.style,
                 'size': this.documentOptions.fontSize,
-                'color': this.documentOptions.color
+                'color': this.documentOptions.color,
+                'font': this.documentOptions.fontFamiliy
             }
             this.digitando++
             this.insertArrayAt(this.document.text, this.digitando, arr);

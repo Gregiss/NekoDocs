@@ -179,3 +179,23 @@ header input::placeholder{
 .dark header input{
   background: #151515;
 }
+
+.tools i{
+    position: relative;
+    top: -10px;
+    left: 20px;
+}
+
+.tools select{
+    margin-left: 20px;
+    left: 20px;
+    border: none;
+    padding: 4px;
+    outline: none;
+    position: relative;
+    top: -10px;
+}
+
+.tools option{
+    outline: none;
+}
