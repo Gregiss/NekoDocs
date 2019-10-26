@@ -23,7 +23,6 @@ var app = new Vue({
     },
     created() {
         window.addEventListener('keydown', (e) => {
-            console.log(e.key)
             if(e.key == 'ArrowLeft'){
                 if(this.digitando >= 0 ){
                     this.digitando--
