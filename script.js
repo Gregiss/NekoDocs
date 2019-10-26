@@ -82,12 +82,14 @@ var app = new Vue({
         darkMode(){
             if(this.theme === 'light'){
                 this.document.color = 'white'
+                this.documentOptions.color = 'white'
                 this.theme = 'dark'
                 for(var i = 0; i < this.document.text.length; i++){
                     this.document.text[i].color = 'white'
                 }
             } else{
                 this.theme = 'light'
+              this.documentOptions.color = 'dark'
                 for(var i = 0; i < this.document.text.length; i++){
                     this.document.text[i].color = 'black'
                 }
@@ -126,7 +128,7 @@ var app = new Vue({
         }
         },
         onde(letter){
-            var index = this.document.text.indexOf(letter)
+            var index = thiws.document.text.indexOf(letter)
             this.lastKey = this.document.text[index]
             this.digitando = index
         }
