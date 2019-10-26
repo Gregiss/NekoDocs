@@ -66,7 +66,7 @@ header span{
     background: #fff;
     width: 100%;
     height: 40px;
-    top: -12px;
+    top: -15px;
     border-bottom: 1px solid #dadce0;
     padding: 10px;
 }
@@ -119,7 +119,7 @@ header span{
 }
 
 .dark header h1{
-    background: rgba(0,0,0,.40);
+    background: #151515;
     color: #fff;
 }
 
@@ -137,4 +137,34 @@ header span{
 
 .dark header span{
     color: #fff;
+}
+
+.dark header{
+  background: #151515;
+}
+
+header{
+  background: #fff;
+}
+
+header input{
+  position: absolute;
+  background: #fff;
+  color: #fff;
+  border: none;
+  top: 10px;
+  left: 110px;
+  padding: 10px;
+  outline: none;
+  color: #000;
+  z-index: 100;
+  font-size: 1.1em;
+}
+
+header input::placeholder{
+  color: #151515;
+}
+
+.dark header input{
+  background: #151515;
 }

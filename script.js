@@ -19,7 +19,8 @@ var app = new Vue({
         documentOptions: {"fontSize": 16, 'color': 'black', 'style': 'normal'},
         lastKey: null,
         digitando: -1,
-        theme: 'light'
+        theme: 'light',
+        editando: false
     },
     created() {
         window.addEventListener('keydown', (e) => {
@@ -128,6 +129,12 @@ var app = new Vue({
             var index = this.document.text.indexOf(letter)
             this.lastKey = this.document.text[index]
             this.digitando = index
+        },
+        editar(){
+          this.editando = true
+        },
+        editFalse(){
+          this.editando = false
         }
     }
 });
